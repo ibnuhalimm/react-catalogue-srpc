@@ -30,3 +30,14 @@ code {
     @apply text-blue-600 bg-transparent;
   }
 }
+
+.table-data {
+  @apply w-full;
+}
+.table-data tbody tr:last-child {
+  @apply border border-solid border-t-0 border-r-0 border-l-0 border-transparent !important;
+}
+
+.breadcrumb li + li {
+  @apply ml-2;
+}

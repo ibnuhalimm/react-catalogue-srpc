@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Category from './pages/Category';
 import Product from './pages/Product';
 import NotFound from './pages/errors/NotFound';
+import CategoryDetail from './pages/CategoryDetail';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <div className="px-5 xl:px-10">
           <Switch>
             <Route path="/" exact component={Category} />
+            <Route path="/:categoryId/products" component={CategoryDetail} />
             <Route path="/product" component={Product} />
             <Route render={NotFound} />
           </Switch>
