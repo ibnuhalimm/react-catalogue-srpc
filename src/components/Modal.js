@@ -37,13 +37,17 @@ export const ModalHeader = props => {
             <h4 className="font-bold text-lg text-ib-one">
                 {titleText}
             </h4>
-            <button type="button"
-                className="absolute right-0 top-0 mt-6 mr-6 text-gray-600 hover:text-gray-400 transition duration-300 outline-none focus:outline-none"
-                onClick={closeModalHandler}>
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+            {
+                closeModalHandler !== undefined
+                ?   <button type="button"
+                        className="absolute right-0 top-0 mt-6 mr-6 text-gray-600 hover:text-gray-400 transition duration-300 outline-none focus:outline-none"
+                        onClick={closeModalHandler}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                :   null
+            }
         </div>
     );
 };

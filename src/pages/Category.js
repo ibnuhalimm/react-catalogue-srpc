@@ -16,6 +16,7 @@ function Category() {
     const [ categories, setCategories ] = useState([]);
     const [ isLoaded, setIsLoaded ] = useState(false);
     const [ showFormModal, setShowFormModal ] = useState(false);
+    const [ showDeleteModal, setShowDeleteModal ] = useState(false);
 
     const initialCategory = {
         id: 0,
@@ -118,6 +119,35 @@ function Category() {
     }
 
 
+    const deleteCategoryHandler = (id) => {
+        setCategory({
+            id: id,
+            name: ''
+        });
+
+        setShowDeleteModal(true);
+    }
+
+
+    const cancelDeleteCategoryHandler = () => {
+        setCategory(initialCategory);
+        setShowDeleteModal(false);
+    }
+
+
+    const confirmDeleteCategoryHandler = async () => {
+        try {
+            await CategoryService.deleteCategory(category.id);
+            _fetchCategories();
+            setCategory(initialCategory);
+            setShowDeleteModal(false);
+
+        } catch (error) {
+            alert(error);
+        }
+    }
+
+
     return (
         <>
             <PathWrapper>
@@ -163,14 +193,20 @@ function Category() {
                                                         </a>
                                                     </Td>
                                                     <Td className="px-5 py-3">
-                                                        <TableButtonLink to={`${category.id}/products`} color="default">
+                                                        <TableButtonLink
+                                                            to={`${category.id}/products`}
+                                                            color="default">
                                                             Produk
                                                         </TableButtonLink>
-                                                        <TableButton color="green" onClick={() => editCategoryHandler(category.id)}>
+                                                        <TableButton
+                                                            color="green"
+                                                            onClick={() => editCategoryHandler(category.id)}>
                                                             Edit
                                                         </TableButton>
-                                                        <TableButton color="red">
-                                                            Delete
+                                                        <TableButton
+                                                            color="red"
+                                                            onClick={() => deleteCategoryHandler(category.id)}>
+                                                            Hapus
                                                         </TableButton>
                                                     </Td>
                                                 </Tr>
@@ -217,6 +253,31 @@ function Category() {
                     </ModalBody>
                 </ModalContent>
             </Modal>
+
+
+            <Modal show={showDeleteModal}>
+                <ModalContent>
+                    <ModalHeader titleText="Hapus Kategori" />
+                    <ModalBody>
+                        <div className="mb-5 text-center">
+                            Apakah Anda yakin ingin menghapus kategori ini?
+                        </div>
+                        <div className="text-center">
+                            <Button
+                                color="gray"
+                                onClick={cancelDeleteCategoryHandler}>
+                                Tidak
+                            </Button>
+                            <Button
+                                color="red"
+                                onClick={confirmDeleteCategoryHandler}>
+                                Ya, Hapus
+                            </Button>
+                        </div>
+                    </ModalBody>
+                </ModalContent>
+            </Modal>
+
         </>
     );
 }

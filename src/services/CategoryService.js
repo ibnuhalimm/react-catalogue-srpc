@@ -52,6 +52,17 @@ class CategoryService {
             return Promise.reject(error.response.data.message);
         });
     }
+
+
+    static deleteCategory(id, data) {
+        return axios.delete(`${Categories.CREATE}/${id}`)
+        .then(responseJson => {
+            return Promise.resolve('success');
+        })
+        .catch(error => {
+            return Promise.reject(error.response.data.message);
+        });
+    }
 }
 
 export default CategoryService;
