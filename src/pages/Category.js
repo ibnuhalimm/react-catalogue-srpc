@@ -74,12 +74,23 @@ function Category() {
 
             } catch (error) {
                 alert(error);
-
             }
         }
 
+
         if (mode === 'edit') {
-            alert('edit');
+            try {
+                const result = await CategoryService.updateCategory(category.id, category);
+
+                if (result === 'success') {
+                    _fetchCategories();
+                    setShowFormModal(false);
+                    setCategory(initialCategory);
+                }
+
+            } catch (error) {
+                alert(error);
+            }
         }
     };
 
@@ -90,6 +101,21 @@ function Category() {
             [event.target.name]: event.target.value
         });
     };
+
+
+    const editCategoryHandler = async (id) => {
+        try {
+            const result = await CategoryService.getSingleCategory(id);
+            setCategory(result);
+
+            setMode('edit');
+            setModalFormTitle('Edit Kategori');
+            setShowFormModal(true);
+
+        } catch (error) {
+            alert(error);
+        }
+    }
 
 
     return (
@@ -140,7 +166,7 @@ function Category() {
                                                         <TableButtonLink to={`${category.id}/products`} color="default">
                                                             Produk
                                                         </TableButtonLink>
-                                                        <TableButton color="green">
+                                                        <TableButton color="green" onClick={() => editCategoryHandler(category.id)}>
                                                             Edit
                                                         </TableButton>
                                                         <TableButton color="red">

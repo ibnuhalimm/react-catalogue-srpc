@@ -25,6 +25,33 @@ class CategoryService {
             return Promise.reject(error.response.data.message);
         });
     }
+
+
+    static getSingleCategory(id) {
+        return axios.get(`${Categories.GET}/${id}`)
+            .then(responseJson => {
+                if (responseJson.data.data) {
+                    return Promise.resolve(responseJson.data.data);
+                }
+                else {
+                    return Promise.reject(responseJson.data.message);
+                }
+            })
+            .catch(error => {
+                return Promise.reject(error.response.data.message);
+            })
+    }
+
+
+    static updateCategory(id, data) {
+        return axios.put(`${Categories.CREATE}/${id}`, data)
+        .then(responseJson => {
+            return Promise.resolve('success');
+        })
+        .catch(error => {
+            return Promise.reject(error.response.data.message);
+        });
+    }
 }
 
 export default CategoryService;
