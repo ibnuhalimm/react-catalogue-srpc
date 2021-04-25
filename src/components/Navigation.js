@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Navigation() {
     const [ sidebarClass, setSidebarClass ] = useState('');
@@ -35,8 +35,10 @@ function Navigation() {
                             </a>
                         </div>
                         <div className="w-full">
-                            <Link to="/"
-                                className="w-11/12 px-4 xl:px-6 py-3 xl:py-2 text-gray-600 inline-flex items-center rounded-full rounded-tl-none rounded-bl-none nav-active"
+                            <NavLink to="/"
+                                exact
+                                className="w-11/12 px-4 xl:px-6 py-3 xl:py-2 text-gray-600 inline-flex items-center rounded-full rounded-tl-none rounded-bl-none"
+                                activeClassName="nav-active"
                                 onClick={() => toggleSidebarHandler('close')}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4" viewBox="0 0 16 16">
                                     <path d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
@@ -45,9 +47,10 @@ function Navigation() {
                                 <span className="ml-4">
                                     Categories
                                 </span>
-                            </Link>
-                            <Link to="/product"
+                            </NavLink>
+                            <NavLink to="/product"
                                 className="w-11/12 px-4 xl:px-6 py-3 xl:py-2 text-gray-600 inline-flex items-center rounded-full rounded-tl-none rounded-bl-none"
+                                activeClassName="nav-active"
                                 onClick={() => toggleSidebarHandler('close')}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4" viewBox="0 0 16 16">
                                     <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
@@ -56,7 +59,7 @@ function Navigation() {
                                 <span className="ml-4">
                                     Products
                                 </span>
-                            </Link>
+                            </NavLink>
                         </div>
                     </div>
                 </div>
