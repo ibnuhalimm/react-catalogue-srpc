@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navigation/>
-      <main className="mt-20 xl:ml-52">
+      <main className="my-20 xl:ml-52">
         <div className="px-5 xl:px-10">
           <Switch>
             <Route path="/" exact component={Category} />
