@@ -6,3 +6,8 @@ export const Categories = {
     UPDATE: BASE_URL_API + '/api/product-categories',
     DELETE: BASE_URL_API + '/api/product-categories'
 };
+
+
+export const Products = {
+    GET: BASE_URL_API + '/api/products'
+}
