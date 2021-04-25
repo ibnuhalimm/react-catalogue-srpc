@@ -45,23 +45,44 @@ class CategoryService {
 
     static updateCategory(id, data) {
         return axios.put(`${Categories.CREATE}/${id}`, data)
-        .then(responseJson => {
-            return Promise.resolve('success');
-        })
-        .catch(error => {
-            return Promise.reject(error.response.data.message);
-        });
+            .then(responseJson => {
+                return Promise.resolve('success');
+            })
+            .catch(error => {
+                return Promise.reject(error.response.data.message);
+            });
     }
 
 
     static deleteCategory(id, data) {
         return axios.delete(`${Categories.CREATE}/${id}`)
-        .then(responseJson => {
-            return Promise.resolve('success');
-        })
-        .catch(error => {
-            return Promise.reject(error.response.data.message);
-        });
+            .then(responseJson => {
+                return Promise.resolve('success');
+            })
+            .catch(error => {
+                return Promise.reject(error.response.data.message);
+            });
+    }
+
+
+    static getSingleCategoryWithProducts(id) {
+        return axios.get(`${Categories.GET}/${id}/products`)
+            .then(responseJson => {
+                if (responseJson.data.data) {
+                    const responseData = responseJson.data.data;
+
+                    return Promise.resolve({
+                        categoryName: responseData.name,
+                        products: responseData.products
+                    });
+                }
+                else {
+                    return Promise.reject(responseJson.data.message);
+                }
+            })
+            .catch(error => {
+                return Promise.reject(error.response.data.message);
+            })
     }
 }
 

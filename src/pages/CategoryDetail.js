@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import CardHeader from '../components/CardHeader';
 import CardBody from '../components/CardBody';
@@ -7,9 +7,33 @@ import TableButton from '../components/TableButton';
 import Button from '../components/Button';
 import { CurrentLocation, Link, PathWrapper, Separator } from '../components/Path';
 import { Modal, ModalBody, ModalContent, ModalHeader } from '../components/Modal';
+import { useParams } from 'react-router';
+import CategoryService from '../services/CategoryService';
 
 function CategoryDetail(props) {
+    const routeParams = useParams();
     const [ showModal, setShowModal ] = useState(false);
+    const [ categoryName, setCategoryName ] = useState('');
+    const [ products, setProducts ] = useState([]);
+
+
+    useEffect(() => {
+        _fetchCategory();
+    }, []);
+
+
+    const _fetchCategory = async () => {
+        try {
+            const result = await CategoryService.getSingleCategoryWithProducts(routeParams.categoryId);
+            setCategoryName(result.categoryName);
+            setProducts(result.products);
+
+        } catch (error) {
+            alert(error);
+
+        }
+    }
+
 
     const toggleModalHandler = status => {
         if (status === 'open') {
@@ -18,8 +42,8 @@ function CategoryDetail(props) {
         else {
             setShowModal(false);
         }
-
     }
+
 
     return (
         <>
@@ -32,7 +56,7 @@ function CategoryDetail(props) {
             </PathWrapper>
             <Card>
                 <CardHeader>
-                    <h1 className="text-xl">Kategori : </h1>
+                    <h1 className="text-xl">Kategori : {categoryName}</h1>
                 </CardHeader>
                 <CardBody>
                     <div className="px-5 mb-3">
@@ -51,74 +75,34 @@ function CategoryDetail(props) {
                                 </Tr>
                             </Thead>
                             <Tbody>
-                                <Tr>
-                                    <Td>1</Td>
-                                    <Td>
-                                        Kabel Data Micro USB JOYSEUS 100CM Nylon Black / Red
-                                    </Td>
-                                    <Td>
-                                        Baru
-                                    </Td>
-                                    <Td>
-                                        Rp 20.000,-
-                                    </Td>
-                                    <Td>
-                                        87
-                                    </Td>
-                                    <Td>
-                                        <TableButton color="default" onClick={() => toggleModalHandler('open')}>
-                                            Detail
-                                        </TableButton>
-                                    </Td>
-                                </Tr>
-                                <Tr>
-                                    <Td>1</Td>
-                                    <Td>
-                                        Kabel Data Micro USB JOYSEUS 100CM Nylon Black / Red
-                                    </Td>
-                                    <Td>
-                                        Baru
-                                    </Td>
-                                    <Td>
-                                        Rp 20.000,-
-                                    </Td>
-                                    <Td>
-                                        87
-                                    </Td>
-                                    <Td>
-                                        <TableButton color="default" onClick={() => toggleModalHandler('open')}>
-                                            Detail
-                                        </TableButton>
-                                    </Td>
-                                </Tr>
-                                <Tr>
-                                    <Td>1</Td>
-                                    <Td>
-                                        Kabel Data Micro USB JOYSEUS 100CM Nylon Black / Red
-                                    </Td>
-                                    <Td>
-                                        Baru
-                                    </Td>
-                                    <Td>
-                                        Rp 20.000,-
-                                    </Td>
-                                    <Td>
-                                        87
-                                    </Td>
-                                    <Td>
-                                        <TableButton color="default" onClick={() => toggleModalHandler('open')}>
-                                            Detail
-                                        </TableButton>
-                                    </Td>
-                                </Tr>
+                                {products.map((product, key) => {
+                                    return (
+                                        <Tr key={key}>
+                                            <Td>
+                                                {key+1}
+                                            </Td>
+                                            <Td>
+                                                {product.name}
+                                            </Td>
+                                            <Td>
+                                                {product.is_new === 1 ? 'Baru' : 'Bekas'}
+                                            </Td>
+                                            <Td>
+                                                Rp {product.price_stock.price},-
+                                            </Td>
+                                            <Td>
+                                                {product.price_stock.stock}
+                                            </Td>
+                                            <Td>
+                                                <TableButton color="default" onClick={() => toggleModalHandler('open')}>
+                                                    Detail
+                                                </TableButton>
+                                            </Td>
+                                        </Tr>
+                                    );
+                                }) }
                             </Tbody>
                         </Table>
-                    </div>
-                    <hr className="border border-solid border-r-0 border-b-0 border-l-0 border-gray-200" />
-                    <div className="text-center my-5">
-                        <Button color="blue">
-                            Muat lainnya
-                        </Button>
                     </div>
                 </CardBody>
             </Card>

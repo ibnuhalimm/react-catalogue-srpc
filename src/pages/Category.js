@@ -189,7 +189,7 @@ function Category() {
                                                     <Td className="px-5 py-3">
                                                         <TableButtonLink
                                                             to={`${category.id}/products`}
-                                                            color="default">
+                                                            color="blue">
                                                             Produk
                                                         </TableButtonLink>
                                                         <TableButton
