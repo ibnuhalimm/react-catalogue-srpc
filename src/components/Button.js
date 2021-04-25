@@ -18,6 +18,10 @@ function Button(props) {
             colorTheme = 'bg-blue-500 text-white';
             break;
 
+        case 'gray':
+            colorTheme = 'bg-gray-500 text-white';
+            break;
+
         case 'default':
             colorTheme = 'bg-react-blue text-react-black';
             break;

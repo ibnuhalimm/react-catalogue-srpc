@@ -51,7 +51,7 @@ export const ModalHeader = props => {
 
 export const ModalBody = props => {
     return (
-        <div className="px-2 h-[30rem] sm:h-48 md:h-96 overflow-y-auto">
+        <div className="px-2 max-h-[30rem] sm:max-h-[12rem] md:max-h-[24rem] overflow-y-auto">
             {props.children}
         </div>
     );

@@ -1,4 +1,5 @@
 import { Categories } from '../constant/API';
+import axios from 'axios';
 
 class CategoryService {
     static getAllCategories() {
@@ -12,6 +13,17 @@ class CategoryService {
                     return Promise.reject(`Something went wrong`);
                 }
             })
+    }
+
+
+    static storeNewCategory(data) {
+        return axios.post(`${Categories.CREATE}`, data)
+        .then(responseJson => {
+            return Promise.resolve('success');
+        })
+        .catch(error => {
+            return Promise.reject(error.response.data.message);
+        });
     }
 }
 
