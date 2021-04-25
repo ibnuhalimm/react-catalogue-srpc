@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../components/Card';
 import CardHeader from '../components/CardHeader';
 import CardBody from '../components/CardBody';
@@ -7,8 +7,32 @@ import TableButtonLink from '../components/TableButtonLink';
 import Button from '../components/Button';
 import { Table, Tbody, Td, Th, Thead, Tr } from '../components/Table';
 import { CurrentLocation, Link, PathWrapper, Separator } from '../components/Path';
+import '../services/CategoryService';
+import CategoryService from '../services/CategoryService';
 
 function Category() {
+    const [ categories, setCategories ] = useState([]);
+    const [ isLoaded, setIsLoaded ] = useState(false);
+
+    useEffect(() => {
+        _fetchCategories()
+    }, []);
+
+
+    const _fetchCategories = async () => {
+        try {
+            const categories = await CategoryService.getAllCategories();
+
+            setIsLoaded(true);
+            setCategories(categories);
+
+        } catch (error) {
+            alert(error);
+
+        }
+    };
+
+
     return (
         <>
             <PathWrapper>
@@ -35,51 +59,43 @@ function Category() {
                                 <Tr>
                                     <Th className="px-5 py-3 text-left w-10">#</Th>
                                     <Th className="px-5 py-3 text-left">Kategori</Th>
-                                    <Th className="px-5 py-3 text-left w-52">Total Produk</Th>
                                     <Th className="px-5 py-3 text-left w-80">###</Th>
                                 </Tr>
                             </Thead>
                             <Tbody>
-                                <Tr>
-                                    <Td className="px-5 py-3">1</Td>
-                                    <Td className="px-5 py-3">
-                                        <a href="#" className="hover:underline">
-                                            Handphone
-                                        </a>
-                                    </Td>
-                                    <Td className="px-5 py-3">22</Td>
-                                    <Td className="px-5 py-3">
-                                        <TableButtonLink to="/1/products" color="default">
-                                            Produk
-                                        </TableButtonLink>
-                                        <TableButton color="green">
-                                            Edit
-                                        </TableButton>
-                                        <TableButton color="red">
-                                            Delete
-                                        </TableButton>
-                                    </Td>
-                                </Tr>
-                                <Tr>
-                                    <Td className="px-5 py-3">1</Td>
-                                    <Td className="px-5 py-3">
-                                        <a href="#" className="hover:underline">
-                                            Handphone
-                                        </a>
-                                    </Td>
-                                    <Td className="px-5 py-3">22</Td>
-                                    <Td className="px-5 py-3">
-                                        <TableButtonLink to="/2/products" color="default">
-                                            Produk
-                                        </TableButtonLink>
-                                        <TableButton color="green">
-                                            Edit
-                                        </TableButton>
-                                        <TableButton color="red">
-                                            Delete
-                                        </TableButton>
-                                    </Td>
-                                </Tr>
+                                {
+                                    isLoaded
+                                    ?   categories.map((category, key) => {
+                                            return (
+                                                <Tr key={key}>
+                                                    <Td className="px-5 py-3">
+                                                        {key + 1}
+                                                    </Td>
+                                                    <Td className="px-5 py-3">
+                                                        <a href="#" className="hover:underline">
+                                                            {category.name}
+                                                        </a>
+                                                    </Td>
+                                                    <Td className="px-5 py-3">
+                                                        <TableButtonLink to={`${category.id}/products`} color="default">
+                                                            Produk
+                                                        </TableButtonLink>
+                                                        <TableButton color="green">
+                                                            Edit
+                                                        </TableButton>
+                                                        <TableButton color="red">
+                                                            Delete
+                                                        </TableButton>
+                                                    </Td>
+                                                </Tr>
+                                            )
+                                        })
+                                    :   <Tr>
+                                            <Td colspan="3" className="text-center">
+                                                <span className="text-blue-500">Memuat data...</span>
+                                            </Td>
+                                        </Tr>
+                                }
                             </Tbody>
                         </Table>
                     </div>

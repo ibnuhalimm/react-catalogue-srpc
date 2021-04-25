@@ -43,10 +43,10 @@ export const Th = props => {
 };
 
 export const Td = props => {
-    const { className } = props;
+    const { className, colspan } = props;
 
     return (
-        <td className={`px-5 py-3 ${className}`}>
+        <td className={`px-5 py-3 ${className}`} colspan={colspan}>
             {props.children}
         </td>
     );
