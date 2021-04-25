@@ -65,13 +65,10 @@ function Category() {
     const saveFormModalHandler = async () => {
         if (mode === 'create') {
             try {
-                const result = await CategoryService.storeNewCategory(category);
-
-                if (result === 'success') {
-                    _fetchCategories();
-                    setShowFormModal(false);
-                    setCategory(initialCategory);
-                }
+                await CategoryService.storeNewCategory(category);
+                _fetchCategories();
+                setShowFormModal(false);
+                setCategory(initialCategory);
 
             } catch (error) {
                 alert(error);
@@ -81,13 +78,10 @@ function Category() {
 
         if (mode === 'edit') {
             try {
-                const result = await CategoryService.updateCategory(category.id, category);
-
-                if (result === 'success') {
-                    _fetchCategories();
-                    setShowFormModal(false);
-                    setCategory(initialCategory);
-                }
+                await CategoryService.updateCategory(category.id, category);
+                _fetchCategories();
+                setShowFormModal(false);
+                setCategory(initialCategory);
 
             } catch (error) {
                 alert(error);
