@@ -2,7 +2,6 @@ import './App.css';
 import Navigation from './components/Navigation';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Category from './pages/Category';
-import Product from './pages/Product';
 import NotFound from './pages/errors/NotFound';
 import CategoryDetail from './pages/CategoryDetail';
 
@@ -15,7 +14,6 @@ function App() {
           <Switch>
             <Route path="/" exact component={Category} />
             <Route path="/:categoryId/products" component={CategoryDetail} />
-            <Route path="/product" component={Product} />
             <Route render={NotFound} />
           </Switch>
         </div>

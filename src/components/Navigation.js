@@ -31,7 +31,7 @@ function Navigation() {
                     <div className="w-full h-full flex flex-col overflow-y-auto">
                         <div className="w-1/2 xl:w-full py-4">
                             <a href="index.html" className="block xl:relative xl:-top-3 xl:mx-3">
-                                <img src={logo} alt="PKL IKU" className="w-16 h-auto" />
+                                <img src={logo} alt="Webservice" className="w-16 h-auto" />
                             </a>
                         </div>
                         <div className="w-full">
@@ -46,18 +46,6 @@ function Navigation() {
                                 </svg>
                                 <span className="ml-4">
                                     Kategori
-                                </span>
-                            </NavLink>
-                            <NavLink to="/product"
-                                className="w-11/12 px-4 xl:px-6 py-3 xl:py-2 text-gray-600 inline-flex items-center rounded-full rounded-tl-none rounded-bl-none"
-                                activeClassName="nav-active"
-                                onClick={() => toggleSidebarHandler('close')}>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 h-4" viewBox="0 0 16 16">
-                                    <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
-                                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
-                                </svg>
-                                <span className="ml-4">
-                                    Produk
                                 </span>
                             </NavLink>
                         </div>
@@ -75,7 +63,7 @@ function Navigation() {
                 </div>
                 <div className="w-1/3 py-3 xl:hidden">
                     <a href="index.html" className="block h-8 w-20 mx-auto relative -top-1">
-                        <img src={logo} alt="PKL IKU" className="w-14 h-auto mx-auto" />
+                        <img src={logo} alt="Webservice" className="w-14 h-auto mx-auto" />
                     </a>
                 </div>
                 <div className="w-1/3 xl:pr-5">
