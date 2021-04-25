@@ -46,7 +46,7 @@ export const Td = props => {
     const { className, colspan } = props;
 
     return (
-        <td className={`px-5 py-3 ${className}`} colspan={colspan}>
+        <td className={`px-5 py-3 ${className}`} colSpan={colspan}>
             {props.children}
         </td>
     );
