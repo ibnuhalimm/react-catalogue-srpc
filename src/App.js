@@ -1,18 +1,24 @@
 import './App.css';
 import Navigation from './components/Navigation';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Category from './pages/Category';
+import Product from './pages/Product';
+import NotFound from './pages/errors/NotFound';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Navigation/>
       <main className="mt-20 xl:ml-52">
         <div className="px-5 xl:px-10">
-            <div className="w-full bg-white border border-solid border-gray-100 rounded-lg p-5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem ex hic nulla praesentium, nesciunt fuga itaque minima inventore illo eveniet, qui exercitationem est tempore repellat dolore sunt error veniam vero.
-            </div>
+          <Switch>
+            <Route path="/" exact component={Category} />
+            <Route path="/product" component={Product} />
+            <Route render={NotFound} />
+          </Switch>
         </div>
       </main>
-    </>
+    </BrowserRouter>
   );
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
+import { Link } from 'react-router-dom';
 
 function Navigation() {
     const [ sidebarClass, setSidebarClass ] = useState('');
@@ -34,7 +35,9 @@ function Navigation() {
                             </a>
                         </div>
                         <div className="w-full">
-                            <a href="index.html" className="w-11/12 px-4 xl:px-6 py-3 xl:py-2 text-gray-600 xl:text-blue-600 inline-flex items-center rounded-full rounded-tl-none rounded-bl-none bg-blue-100 xl:bg-transparent">
+                            <Link to="/"
+                                className="w-11/12 px-4 xl:px-6 py-3 xl:py-2 text-gray-600 inline-flex items-center rounded-full rounded-tl-none rounded-bl-none nav-active"
+                                onClick={() => toggleSidebarHandler('close')}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4" viewBox="0 0 16 16">
                                     <path d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
                                     <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
@@ -42,8 +45,10 @@ function Navigation() {
                                 <span className="ml-4">
                                     Categories
                                 </span>
-                            </a>
-                            <a href="index.html" className="w-11/12 px-4 xl:px-6 py-3 xl:py-2 text-gray-600 inline-flex items-center rounded-full rounded-tl-none rounded-bl-none">
+                            </Link>
+                            <Link to="/product"
+                                className="w-11/12 px-4 xl:px-6 py-3 xl:py-2 text-gray-600 inline-flex items-center rounded-full rounded-tl-none rounded-bl-none"
+                                onClick={() => toggleSidebarHandler('close')}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4" viewBox="0 0 16 16">
                                     <path d="M4 10a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 0 1-2 0v-2zm3 0a1 1 0 1 1 2 0v2a1 1 0 0 1-2 0v-2z"/>
                                     <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-.623l-1.844 6.456a.75.75 0 0 1-.722.544H3.69a.75.75 0 0 1-.722-.544L1.123 8H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172zM2.163 8l1.714 6h8.246l1.714-6H2.163z"/>
@@ -51,7 +56,7 @@ function Navigation() {
                                 <span className="ml-4">
                                     Products
                                 </span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
