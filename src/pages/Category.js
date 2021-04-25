@@ -6,7 +6,6 @@ import TableButton from '../components/TableButton';
 import TableButtonLink from '../components/TableButtonLink';
 import Button from '../components/Button';
 import { Table, Tbody, Td, Th, Thead, Tr } from '../components/Table';
-import { NavLink } from 'react-router-dom';
 import { CurrentLocation, Link, PathWrapper, Separator } from '../components/Path';
 
 function Category() {

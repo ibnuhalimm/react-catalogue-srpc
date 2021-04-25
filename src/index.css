@@ -12,6 +12,10 @@ body {
   @apply text-sm bg-gray-50;
 }
 
+body.modal-active {
+  @apply overflow-y-hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
