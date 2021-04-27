@@ -11,6 +11,7 @@ import { Modal, ModalBody, ModalContent, ModalHeader } from '../components/Modal
 import '../services/CategoryService';
 import CategoryService from '../services/CategoryService';
 import { FormGroup, InputText, Label } from '../components/Form';
+import { NavLink } from 'react-router-dom';
 
 function Category() {
     const [ categories, setCategories ] = useState([]);
@@ -182,9 +183,9 @@ function Category() {
                                                         {key + 1}
                                                     </Td>
                                                     <Td className="px-5 py-3">
-                                                        <a href="#" className="hover:underline">
+                                                        <NavLink to={`${category.id}/products`} className="hover:underline">
                                                             {category.name}
-                                                        </a>
+                                                        </NavLink>
                                                     </Td>
                                                     <Td className="px-5 py-3">
                                                         <TableButtonLink

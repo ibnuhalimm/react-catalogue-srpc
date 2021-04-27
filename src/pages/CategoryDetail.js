@@ -4,7 +4,6 @@ import CardHeader from '../components/CardHeader';
 import CardBody from '../components/CardBody';
 import { Table, Tbody, Td, Th, Thead, Tr } from '../components/Table';
 import TableButton from '../components/TableButton';
-import Button from '../components/Button';
 import { CurrentLocation, Link, PathWrapper, Separator } from '../components/Path';
 import { Modal, ModalBody, ModalContent, ModalHeader } from '../components/Modal';
 import { useParams } from 'react-router';
@@ -134,7 +133,7 @@ function CategoryDetail(props) {
                                     <h4 className="font-bold">
                                         Nama
                                     </h4>
-                                    <p className="text-gray-600">
+                                    <p className="text-gray-600 dark:text-gray-300">
                                         {product.name}
                                     </p>
                                 </div>
@@ -142,9 +141,9 @@ function CategoryDetail(props) {
                                     <h4 className="font-bold">
                                         Deskripsi
                                     </h4>
-                                    <p className="text-gray-600">
+                                    <div className="text-gray-600 dark:text-gray-300">
                                         <div dangerouslySetInnerHTML={{ __html: product.description }}></div>
-                                    </p>
+                                    </div>
                                 </div>
                                 <div className="mb-4">
                                     <div className="flex flex-row">
@@ -152,7 +151,7 @@ function CategoryDetail(props) {
                                             <h4 className="font-bold">
                                                 Kondisi
                                             </h4>
-                                            <p className="text-gray-600">
+                                            <p className="text-gray-600 dark:text-gray-300">
                                                 {product.is_new ? 'Baru' : 'Bekas'}
                                             </p>
                                         </div>
@@ -160,7 +159,7 @@ function CategoryDetail(props) {
                                             <h4 className="font-bold">
                                                 Berat
                                             </h4>
-                                            <p className="text-gray-600">
+                                            <p className="text-gray-600 dark:text-gray-300">
                                                 {product.weight} gram
                                             </p>
                                         </div>
@@ -174,7 +173,7 @@ function CategoryDetail(props) {
                                                     <h4 className="font-bold">
                                                         Harga
                                                     </h4>
-                                                    <p className="text-gray-600">
+                                                    <p className="text-gray-600 dark:text-gray-300">
                                                         Rp {product.price_stock.price !== undefined ? product.price_stock.price : 0},-
                                                     </p>
                                                 </div>
@@ -182,7 +181,7 @@ function CategoryDetail(props) {
                                                     <h4 className="font-bold">
                                                         Stok
                                                     </h4>
-                                                    <p className="text-gray-600">
+                                                    <p className="text-gray-600 dark:text-gray-300">
                                                         {product.price_stock.stock !== undefined ? product.price_stock.stock : 0}
                                                     </p>
                                                 </div>

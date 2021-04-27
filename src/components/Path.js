@@ -17,7 +17,7 @@ export const Link = props => {
 
     return (
         <li className="inline-block">
-            <NavLink to={to} className="text-gray-800 hover:underline">
+            <NavLink to={to} className="text-gray-800 dark:text-gray-300 hover:underline">
                 {props.children}
             </NavLink>
         </li>
@@ -28,7 +28,7 @@ export const Link = props => {
 export const Separator = _ => {
     return (
         <li className="inline-block">
-            <span className="text-gray-400">&raquo;</span>
+            <span className="text-gray-400 dark:text-gray-400">&raquo;</span>
         </li>
     );
 };
@@ -37,7 +37,7 @@ export const Separator = _ => {
 export const CurrentLocation = props => {
     return (
         <li className="inline-block">
-            <span className="text-gray-600">
+            <span className="text-gray-600 dark:text-gray-100">
                 {props.children}
             </span>
         </li>

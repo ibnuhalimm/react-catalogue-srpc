@@ -10,7 +10,7 @@ export const Table = props => {
 
 export const Thead = props => {
     return (
-        <thead className="border border-l-0 border-r-0 border-solid border-gray-200">
+        <thead className="border border-l-0 border-r-0 border-solid border-gray-200 dark:border-gray-500">
             {props.children}
         </thead>
     );
@@ -26,7 +26,7 @@ export const Tbody = props => {
 
 export const Tr = props => {
     return (
-        <tr className="border border-solid border-t-0 border-r-0 border-l-0 border-gray-200">
+        <tr className="border border-solid border-t-0 border-r-0 border-l-0 border-gray-200 dark:border-gray-500">
             {props.children}
         </tr>
     );

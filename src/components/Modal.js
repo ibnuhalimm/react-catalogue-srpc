@@ -22,7 +22,7 @@ export const Modal = props => {
 
 export const ModalContent = props => {
     return (
-        <div className="relative w-11/12 sm:w-3/5 xl:w-2/5 mx-auto h-auto px-6 py-6 bg-white my-10 z-50 rounded-lg">
+        <div className="relative w-11/12 sm:w-3/5 xl:w-2/5 mx-auto h-auto px-6 py-6 bg-white dark:bg-gray-600 my-10 z-50 rounded-lg">
             {props.children}
         </div>
     );
@@ -40,7 +40,7 @@ export const ModalHeader = props => {
             {
                 closeModalHandler !== undefined
                 ?   <button type="button"
-                        className="absolute right-0 top-0 mt-6 mr-6 text-gray-600 hover:text-gray-400 transition duration-300 outline-none focus:outline-none"
+                        className="absolute right-0 top-0 mt-6 mr-6 text-gray-600 dark:text-gray-200 hover:text-gray-400 hover:dark:text-gray-100 transition duration-300 outline-none focus:outline-none"
                         onClick={closeModalHandler}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
