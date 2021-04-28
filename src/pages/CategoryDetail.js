@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Card from '../components/Card';
 import CardHeader from '../components/CardHeader';
 import CardBody from '../components/CardBody';
@@ -9,6 +9,7 @@ import { Modal, ModalBody, ModalContent, ModalHeader } from '../components/Modal
 import { useParams } from 'react-router';
 import CategoryService from '../services/CategoryService';
 import ProductService from '../services/ProductService';
+import { PageTitleContext } from '../context/pageTitleContext';
 
 function CategoryDetail(props) {
     const routeParams = useParams();
@@ -17,6 +18,7 @@ function CategoryDetail(props) {
     const [ products, setProducts ] = useState([]);
     const [ product, setProduct ] = useState({});
 
+    const { setPageTitle } = useContext(PageTitleContext);
 
     useEffect(() => {
         _fetchCategory();
@@ -28,6 +30,8 @@ function CategoryDetail(props) {
             const result = await CategoryService.getSingleCategoryWithProducts(routeParams.categoryId);
             setCategoryName(result.categoryName);
             setProducts(result.products);
+
+            setPageTitle(`Kategori Produk: ${result.categoryName}`);
 
         } catch (error) {
             alert(error);

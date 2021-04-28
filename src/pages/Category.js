@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Card from '../components/Card';
 import CardHeader from '../components/CardHeader';
 import CardBody from '../components/CardBody';
@@ -12,12 +12,15 @@ import '../services/CategoryService';
 import CategoryService from '../services/CategoryService';
 import { FormGroup, InputText, Label } from '../components/Form';
 import { NavLink } from 'react-router-dom';
+import { PageTitleContext } from '../context/pageTitleContext';
 
 function Category() {
     const [ categories, setCategories ] = useState([]);
     const [ isLoaded, setIsLoaded ] = useState(false);
     const [ showFormModal, setShowFormModal ] = useState(false);
     const [ showDeleteModal, setShowDeleteModal ] = useState(false);
+
+    const { setPageTitle } = useContext(PageTitleContext);
 
     const initialCategory = {
         id: 0,
@@ -30,6 +33,7 @@ function Category() {
 
 
     useEffect(() => {
+        setPageTitle('Kategori Produk');
         _fetchCategories()
     }, []);
 

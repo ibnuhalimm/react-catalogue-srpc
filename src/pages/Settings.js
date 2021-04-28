@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Card from '../components/Card';
 import CardBody from '../components/CardBody';
 import CardHeader from '../components/CardHeader';
@@ -6,10 +6,16 @@ import { CurrentLocation, Link, PathWrapper, Separator } from '../components/Pat
 import light_theme_preview from '../img/theme/light_preview.svg';
 import dark_theme_preview from '../img/theme/dark_preview.svg';
 import { ThemeContext } from '../context/themeContext';
+import { PageTitleContext } from '../context/pageTitleContext';
 
 
 function Settings() {
     const { theme, setTheme } = useContext(ThemeContext);
+    const { setPageTitle } = useContext(PageTitleContext);
+
+    useEffect(() => {
+        setPageTitle('Pengaturan');
+    }, []);
 
     const isDark = () => {
         return theme === 'dark';
