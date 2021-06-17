@@ -1,13 +1,28 @@
+import axios from 'axios';
+
 const BASE_URL_API = process.env.REACT_APP_BASE_URL_API;
 
-export const Categories = {
-    GET: BASE_URL_API + '/api/product-categories',
-    CREATE: BASE_URL_API + '/api/product-categories',
-    UPDATE: BASE_URL_API + '/api/product-categories',
-    DELETE: BASE_URL_API + '/api/product-categories'
+export const ApiClient = axios.create({
+    baseURL: BASE_URL_API,
+    withCredentials: true
+});
+
+export const CSRFToken = {
+    GET: '/sanctum/csrf-cookie'
+}
+
+export const Auth = {
+    REGISTER: '/api/auth/register',
+    LOGIN: '/api/auth/login'
 };
 
+export const Categories = {
+    GET: '/api/product-categories',
+    CREATE: '/api/product-categories',
+    UPDATE: '/api/product-categories',
+    DELETE: '/api/product-categories'
+};
 
 export const Products = {
-    GET: BASE_URL_API + '/api/products'
+    GET: '/api/products'
 }
