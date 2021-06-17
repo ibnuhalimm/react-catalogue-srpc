@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Button(props) {
-    const { color, onClick } = props;
+    const { color, onClick, className } = props;
 
     let colorTheme = 'bg-green-500 text-white';
 
@@ -32,7 +32,8 @@ function Button(props) {
     }
 
     return (
-        <button className={`${colorTheme} outline-none focus:outline-none inline-flex items-center hover:bg-opacity-80 transition duration-300 px-5 py-2 rounded-md text-sm shadow-md mx-1 mb-1`}
+        <button type="button"
+            className={`${colorTheme} inline-flex items-center justify-center outline-none focus:outline-none px-5 py-2 h-10 rounded-md shadow-md mb-1 hover:bg-opacity-80 transition duration-300 text-sm ${className}`}
             onClick={onClick}>
             {props.children}
         </button>
