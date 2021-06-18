@@ -11,10 +11,14 @@ import { Modal, ModalBody, ModalContent, ModalHeader } from '../components/Modal
 import '../services/CategoryService';
 import CategoryService from '../services/CategoryService';
 import { FormGroup, InputText, Label } from '../components/Form';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect, Route } from 'react-router-dom';
 import { PageTitleContext } from '../context/pageTitleContext';
+import Navigation from '../components/Navigation';
+import AppLayout from '../components/AppLayout';
+import { SUCCESS, UNAUTHORIZED } from '../constant/StatusCode';
 
-function Category() {
+
+function Category(props) {
     const [ categories, setCategories ] = useState([]);
     const [ isLoaded, setIsLoaded ] = useState(false);
     const [ showFormModal, setShowFormModal ] = useState(false);
@@ -40,15 +44,18 @@ function Category() {
 
     const _fetchCategories = async () => {
         try {
-            const categories = await CategoryService.getAllCategories();
+            const resultData = await CategoryService.getAllCategories();
 
             setCategories([]);
             setIsLoaded(true);
-            setCategories(categories);
+            setCategories(resultData.data);
 
         } catch (error) {
-            alert(error);
+            if (error.code === UNAUTHORIZED) {
+                props.history.push('/login');
+            }
 
+            console.log(error);
         }
     };
 
@@ -148,7 +155,7 @@ function Category() {
 
 
     return (
-        <>
+        <AppLayout>
             <PathWrapper>
                 <Link to="/">Beranda</Link>
                 <Separator></Separator>
@@ -276,8 +283,7 @@ function Category() {
                     </ModalBody>
                 </ModalContent>
             </Modal>
-
-        </>
+        </AppLayout>
     );
 }
 

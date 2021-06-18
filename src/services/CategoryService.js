@@ -1,29 +1,50 @@
-import { Categories } from '../constant/API';
+import {
+    ApiClient,
+    Categories
+} from '../constant/API';
+import {
+    SUCCESS
+} from '../constant/StatusCode';
 import axios from 'axios';
+import AuthTokenService from './AuthTokenService';
+import { Redirect } from 'react-router';
+
 
 class CategoryService {
     static getAllCategories() {
-        return fetch(`${Categories.GET}`)
-            .then(response => response.json())
-            .then(responseJson => {
-                if (responseJson.data) {
-                    return Promise.resolve(responseJson.data);
-                }
-                else {
-                    return Promise.reject(`Something went wrong`);
+        return ApiClient.get(`${Categories.GET}`, {
+                headers: {
+                    'Authorization': `${AuthTokenService.BearerToken()}`
                 }
             })
+            .then(response => {
+                let responseData = response.data;
+                responseData['code'] = SUCCESS;
+
+                return Promise.resolve(responseData);
+            })
+            .catch(({ response }) => {
+                let responseData = response.data;
+                responseData['code'] = response.status;
+                // if (response.status === UNAUTHORIZED) {
+                //     responseData['code'] = UNAUTHORIZED;
+
+                //     return Promise.resolve(responseData);
+                // }
+
+                return Promise.reject(responseData);
+            });
     }
 
 
     static storeNewCategory(data) {
         return axios.post(`${Categories.CREATE}`, data)
-        .then(responseJson => {
-            return Promise.resolve('success');
-        })
-        .catch(error => {
-            return Promise.reject(error.response.data.message);
-        });
+            .then(responseJson => {
+                return Promise.resolve('success');
+            })
+            .catch(error => {
+                return Promise.reject(error.response.data.message);
+            });
     }
 
 

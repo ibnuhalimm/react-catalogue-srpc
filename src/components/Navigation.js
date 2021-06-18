@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
+import { logoutUser } from '../context/Auth/action';
+import { useAuthDispatch } from '../context/Auth/context';
 
-function Navigation() {
+
+function Navigation(props) {
     const [ sidebarClass, setSidebarClass ] = useState('');
     const [ backdropClass, setBackdropClass ] = useState('opacity-0 pointer-events-none');
+
+    const dispatch = useAuthDispatch();
 
     const toggleSidebarHandler = (action) => {
         let currentSidebarClass = '';
@@ -20,8 +25,14 @@ function Navigation() {
     };
 
 
+    const logoutUserHandler = () => {
+        logoutUser(dispatch);
+        window.location.href = '/login';
+    }
+
+
     return (
-        <header className="fixed top-0 left-0 w-full border border-solid border-t-0 border-r-0 border-l-0 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-700 dark:bg-opacity-30">
+        <header className="fixed top-0 left-0 w-full border border-solid border-t-0 border-r-0 border-l-0 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-600">
             <nav className="flex flex-row items-center justify-between xl:justify-end">
                 <div className={ backdropClass + ' w-full h-full fixed inset-0 z-20 transition-opacity duration-500' }
                     onClick={() => toggleSidebarHandler('close')}>
@@ -60,6 +71,17 @@ function Navigation() {
                                     Pengaturan
                                 </span>
                             </NavLink>
+                            <button type="button"
+                                className="w-11/12 px-4 xl:px-6 py-3 xl:py-2 text-gray-600 dark:text-gray-100 inline-flex items-center rounded-full rounded-tl-none rounded-bl-none"
+                                onClick={() => logoutUserHandler()}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="w-4 h-4 bi bi-box-arrow-right" viewBox="0 0 16 16">
+                                    <path fillRule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                                    <path fillRule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                                </svg>
+                                <span className="ml-4">
+                                    Logout
+                                </span>
+                            </button>
                         </div>
                     </div>
                 </div>

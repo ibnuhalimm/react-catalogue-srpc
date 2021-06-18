@@ -7,6 +7,7 @@ import light_theme_preview from '../img/theme/light_preview.svg';
 import dark_theme_preview from '../img/theme/dark_preview.svg';
 import { ThemeContext } from '../context/themeContext';
 import { PageTitleContext } from '../context/pageTitleContext';
+import AppLayout from '../components/AppLayout';
 
 
 function Settings() {
@@ -26,7 +27,7 @@ function Settings() {
     }
 
     return (
-        <>
+        <AppLayout>
             <PathWrapper>
                 <Link to="/">Beranda</Link>
                 <Separator></Separator>
@@ -81,7 +82,7 @@ function Settings() {
                     </div>
                 </CardBody>
             </Card>
-        </>
+        </AppLayout>
     );
 }
 
