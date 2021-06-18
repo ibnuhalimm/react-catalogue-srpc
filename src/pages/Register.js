@@ -1,16 +1,24 @@
+import React, { useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../components/Button';
 import { InputText, Label, RequiredMark } from '../components/Form';
+import { PageTitleContext } from '../context/pageTitleContext';
 import logo from '../logo.svg';
 
 
 function Register() {
+    const { setPageTitle } = useContext(PageTitleContext);
+
+    useEffect(() => {
+        setPageTitle('Register');
+    }, []);
+
     return (
         <main className="mt-10 mb-28">
             <div className="w-4/5 sm:w-2/5 md:w-4/5 lg:w-3/5 xl:max-w-xl mx-auto">
                 <div className="bg-transparent md:bg-white md:rounded-lg md:shadow-lg md:px-8 lg:px-3 md:py-10">
                     <div className="w-32 mx-auto">
-                        <img src={logo} className="w-full h-auto" />
+                        <img src={logo} alt="Logo" className="w-full h-auto" />
                     </div>
                     <div className="text-center mt-3">
                         <h1 className="text-2xl font-bold text-gray-800">
