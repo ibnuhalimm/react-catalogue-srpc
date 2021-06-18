@@ -1,9 +1,14 @@
-import { Products } from '../Constant/API';
-import axios from 'axios';
+import { ApiClient, Products } from '../Constant/API';
+import AuthTokenService from './AuthTokenService';
+
 
 class ProductService {
     static getSingleProduct(id) {
-        return axios.get(`${Products.GET}/${id}`)
+        return ApiClient.get(`${Products.GET}/${id}`, {
+                headers: {
+                    'Authorization': `${AuthTokenService.BearerToken()}`
+                }
+            })
             .then(responseJson => {
                 if (responseJson.data.data) {
                     return Promise.resolve(responseJson.data.data);

@@ -10,6 +10,7 @@ import { useParams } from 'react-router';
 import CategoryService from '../Services/CategoryService';
 import ProductService from '../Services/ProductService';
 import { PageTitleContext } from '../Context/pageTitleContext';
+import AppLayout from '../Components/AppLayout';
 
 function CategoryDetail(props) {
     const routeParams = useParams();
@@ -63,7 +64,7 @@ function CategoryDetail(props) {
 
 
     return (
-        <>
+        <AppLayout>
             <PathWrapper>
                 <Link to="/">Beranda</Link>
                 <Separator></Separator>
@@ -224,7 +225,7 @@ function CategoryDetail(props) {
                     </Modal>
                 :   null
             }
-        </>
+        </AppLayout>
     );
 }
 

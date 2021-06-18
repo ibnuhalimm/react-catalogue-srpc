@@ -116,7 +116,11 @@ class CategoryService {
 
 
     static getSingleCategoryWithProducts(id) {
-        return axios.get(`${Categories.GET}/${id}/products`)
+        return ApiClient.get(`${Categories.GET}/${id}/products`, {
+                headers: {
+                    'Authorization': `${AuthTokenService.BearerToken()}`
+                }
+            })
             .then(responseJson => {
                 if (responseJson.data.data) {
                     const responseData = responseJson.data.data;
