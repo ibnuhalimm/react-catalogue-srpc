@@ -25,11 +25,6 @@ class CategoryService {
             .catch(({ response }) => {
                 let responseData = response.data;
                 responseData['code'] = response.status;
-                // if (response.status === UNAUTHORIZED) {
-                //     responseData['code'] = UNAUTHORIZED;
-
-                //     return Promise.resolve(responseData);
-                // }
 
                 return Promise.reject(responseData);
             });
