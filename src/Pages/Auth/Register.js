@@ -57,7 +57,7 @@ function Register() {
                     </div>
                     <div className="text-center mt-3">
                         <Title>
-                            Register
+                            Daftar
                         </Title>
                     </div>
                     <div className="lg:px-6 mt-8">
@@ -74,7 +74,7 @@ function Register() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-8">
                                 <div>
                                     <Label>
-                                        Full Name <RequiredMark/>
+                                        Nama Lengkap <RequiredMark/>
                                     </Label>
                                     <InputText
                                         type="text"
@@ -83,7 +83,7 @@ function Register() {
                                 </div>
                                 <div>
                                     <Label>
-                                        Email Address <RequiredMark/>
+                                        Email <RequiredMark/>
                                     </Label>
                                     <InputText
                                         type="text"
@@ -101,7 +101,7 @@ function Register() {
                                 </div>
                                 <div>
                                     <Label>
-                                        Confirm Password <RequiredMark/>
+                                        Ulangi Password <RequiredMark/>
                                     </Label>
                                     <InputText
                                         type="password"
@@ -114,19 +114,19 @@ function Register() {
                                     type="submit"
                                     color="default"
                                     className="w-full">
-                                    {loading ? 'Processing...' : 'Register'}
+                                    {loading ? 'Memproses...' : 'Daftar'}
                                 </Button>
                             </div>
                         </form>
                         <div className="mt-8">
                             <p className="text-center">
                                 <span className="text-gray-600 dark:text-gray-300">
-                                    Already have an account?
+                                    Sudah punya akun?
                                 </span>
 
                                 <NavLink to="/login"
                                     className="ml-1 underline font-bold text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300">
-                                    Login
+                                    Masuk
                                 </NavLink>
                             </p>
                         </div>

@@ -52,7 +52,7 @@ function Login(props) {
                     </div>
                     <div className="text-center mt-3">
                         <Title>
-                            Login
+                            Masuk
                         </Title>
                     </div>
                     <div className="lg:px-6 mt-8">
@@ -64,7 +64,7 @@ function Login(props) {
                         <form method="post" onSubmit={(event) => loginSubmitHandler(event)}>
                             <FormGroup>
                                 <Label>
-                                    Email Address <RequiredMark/>
+                                    Email <RequiredMark/>
                                 </Label>
                                 <InputText
                                     type="text"
@@ -85,19 +85,19 @@ function Login(props) {
                                     type="submit"
                                     color="default"
                                     className="w-full">
-                                    {loading ? 'Logging in...' : 'Login'}
+                                    {loading ? 'Memproses...' : 'Masuk'}
                                 </Button>
                             </div>
                         </form>
                         <div className="mt-8">
                             <p className="text-center">
                                 <span className="text-gray-600 dark:text-gray-300">
-                                    Don't have an account?
+                                    Belum punya akun?
                                 </span>
 
                                 <NavLink to="/register"
                                     className="ml-1 underline font-bold text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300">
-                                    Register
+                                    Daftar
                                 </NavLink>
                             </p>
                         </div>
