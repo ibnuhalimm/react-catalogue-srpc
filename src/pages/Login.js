@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Button from '../components/Button';
 import { FormGroup, InputText, Label, RequiredMark } from '../components/Form';
 import { PageTitleContext } from '../context/pageTitleContext';
@@ -16,8 +16,6 @@ function Login(props) {
     const dispatch = useAuthDispatch();
     const { loading, errorMessage } = useAuthState();
 
-    const navigation = useHistory();
-
     useEffect(() => {
         setPageTitle('Login');
         logoutUser(dispatch);
@@ -32,7 +30,7 @@ function Login(props) {
 
         let response = await loginUser(dispatch, userPayload);
         if (response.data) {
-            navigation.push('/');
+            window.location.href = '/';
         }
 
         setEmail('');

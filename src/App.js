@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import { ThemeProvider } from './context/themeContext';
 import { PageTitleProvider } from './context/pageTitleContext';
 import { AuthProvider } from './context/Auth/context';
+import AppRoute from './components/AppRoute';
 
 
 function App() {
@@ -18,13 +19,39 @@ function App() {
                 <PageTitleProvider>
                     <BrowserRouter>
                         <Switch>
-                            <Route path="/register" component={Register} />
-                            <Route path="/login" component={Login} />
                             {/* Private Route */}
-                            <Route path="/" exact component={Category} />
-                            <Route path="/:categoryId/products" component={CategoryDetail} />
-                            <Route path="/settings" exact component={Settings} />
-                            <Route render={NotFound} />
+                            <Route
+                                exact
+                                path="/register"
+                                component={Register} />
+                            <Route
+                                exact
+                                path="/login"
+                                component={Login} />
+                            <AppRoute
+                                exact
+                                path="/"
+                                component={Category}
+                                isPrivate={true} />
+                            {/* <Route path="/" exact component={Category} /> */}
+                            {/* <Route
+                                path="/settings"
+                                exact component={Settings} /> */}
+                            <AppRoute
+                                exact
+                                path="/settings"
+                                component={Settings}
+                                isPrivate={true} />
+                            {/* <Route
+                                path="/:categoryId/products"
+                                component={CategoryDetail} /> */}
+                            <AppRoute
+                                exact
+                                path="/:categoryId/products"
+                                component={CategoryDetail}
+                                isPrivate={true} />
+                            <Route path="/*"
+                                render={NotFound} />
                         </Switch>
                     </BrowserRouter>
                 </PageTitleProvider>
