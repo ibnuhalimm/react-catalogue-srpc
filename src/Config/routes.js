@@ -1,9 +1,9 @@
-import Login from '../pages/Login';
-import Register from '../pages/Register';
-import Category from '../pages/Category';
-import NotFound from '../pages/errors/NotFound'
-import Settings from '../pages/Settings';
-import CategoryDetail from '../pages/CategoryDetail';
+import Login from '../Pages/Login';
+import Register from '../Pages/Register';
+import Category from '../Pages/Category';
+import NotFound from '../Pages/Errors/NotFound'
+import Settings from '../Pages/Settings';
+import CategoryDetail from '../Pages/CategoryDetail';
 
 
 const routes = [

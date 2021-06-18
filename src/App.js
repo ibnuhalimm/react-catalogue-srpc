@@ -1,15 +1,9 @@
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Category from './pages/Category';
-import NotFound from './pages/errors/NotFound';
-import CategoryDetail from './pages/CategoryDetail';
-import Settings from './pages/Settings';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import { ThemeProvider } from './context/themeContext';
-import { PageTitleProvider } from './context/pageTitleContext';
-import { AuthProvider } from './context/Auth/context';
-import AppRoute from './components/AppRoute';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import { ThemeProvider } from './Context/themeContext';
+import { PageTitleProvider } from './Context/pageTitleContext';
+import { AuthProvider } from './Context/Auth/context';
+import AppRoute from './Components/AppRoute';
 import routes from './Config/routes';
 
 
