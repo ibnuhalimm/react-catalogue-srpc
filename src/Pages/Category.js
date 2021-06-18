@@ -285,7 +285,8 @@ function Category(props) {
                             </Button>
                             <Button
                                 color="red"
-                                onClick={confirmDeleteCategoryHandler}>
+                                onClick={confirmDeleteCategoryHandler}
+                                className="ml-2">
                                 Ya, Hapus
                             </Button>
                         </div>

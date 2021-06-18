@@ -95,12 +95,22 @@ class CategoryService {
 
 
     static deleteCategory(id, data) {
-        return axios.delete(`${Categories.CREATE}/${id}`)
-            .then(responseJson => {
-                return Promise.resolve('success');
+        return ApiClient.delete(`${Categories.CREATE}/${id}`, {
+                headers: {
+                    'Authorization': `${AuthTokenService.BearerToken()}`
+                }
             })
-            .catch(error => {
-                return Promise.reject(error.response.data.message);
+            .then(response => {
+                let responseData = response.data;
+                responseData['code'] = response.status;
+
+                return Promise.resolve(responseData);
+            })
+            .catch(({ response }) => {
+                let responseData = response.data;
+                responseData['code'] = response.status;
+
+                return Promise.reject(responseData);
             });
     }
 
