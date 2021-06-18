@@ -11,7 +11,7 @@ function Register() {
 
     useEffect(() => {
         setPageTitle('Register');
-    });
+    }, []);
 
     return (
         <main className="mt-10 mb-28">

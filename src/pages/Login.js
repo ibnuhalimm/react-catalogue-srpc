@@ -9,7 +9,7 @@ import { useAuthState, useAuthDispatch } from '../context/Auth/context';
 
 
 function Login(props) {
-    const { setPageTitle } = useContext(PageTitleContext);
+    const { pageTitle, setPageTitle } = useContext(PageTitleContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -19,7 +19,7 @@ function Login(props) {
     useEffect(() => {
         setPageTitle('Login');
         logoutUser(dispatch);
-    });
+    }, []);
 
 
     const loginSubmitHandler = async () => {

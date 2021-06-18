@@ -23,7 +23,7 @@ function Category(props) {
     const [ showFormModal, setShowFormModal ] = useState(false);
     const [ showDeleteModal, setShowDeleteModal ] = useState(false);
 
-    const { setPageTitle } = useContext(PageTitleContext);
+    const { pageTitle, setPageTitle } = useContext(PageTitleContext);
 
     const initialCategory = {
         id: 0,
@@ -38,7 +38,7 @@ function Category(props) {
     useEffect(() => {
         setPageTitle('Kategori Produk');
         _fetchCategories()
-    });
+    }, []);
 
 
     const _fetchCategories = async () => {

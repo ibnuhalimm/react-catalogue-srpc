@@ -16,7 +16,7 @@ function Settings() {
 
     useEffect(() => {
         setPageTitle('Pengaturan');
-    });
+    }, []);
 
     const isDark = () => {
         return theme === 'dark';
