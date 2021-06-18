@@ -1,13 +1,13 @@
 import React, { useContext, useEffect } from 'react';
-import Card from '../components/Card';
-import CardBody from '../components/CardBody';
-import CardHeader from '../components/CardHeader';
-import { CurrentLocation, Link, PathWrapper, Separator } from '../components/Path';
-import light_theme_preview from '../img/theme/light_preview.svg';
-import dark_theme_preview from '../img/theme/dark_preview.svg';
-import { ThemeContext } from '../context/themeContext';
-import { PageTitleContext } from '../context/pageTitleContext';
-import AppLayout from '../components/AppLayout';
+import Card from '../Components/Card';
+import CardBody from '../Components/CardBody';
+import CardHeader from '../Components/CardHeader';
+import { CurrentLocation, Link, PathWrapper, Separator } from '../Components/Path';
+import light_theme_preview from '../Img/theme/light_preview.svg';
+import dark_theme_preview from '../Img/theme/dark_preview.svg';
+import { ThemeContext } from '../Context/themeContext';
+import { PageTitleContext } from '../Context/pageTitleContext';
+import AppLayout from '../Components/AppLayout';
 
 
 function Settings() {

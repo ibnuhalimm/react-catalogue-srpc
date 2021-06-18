@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
 import { NavLink, useHistory } from 'react-router-dom';
-import { logoutUser } from '../context/Auth/action';
-import { useAuthDispatch } from '../context/Auth/context';
+import { logoutUser } from '../Context/Auth/action';
+import { useAuthDispatch } from '../Context/Auth/context';
 
 
 function Navigation(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router';
-import { useAuthState } from '../context/Auth/context';
+import { useAuthState } from '../Context/Auth/context';
 
 
 function AppRoute({ component: Component, path, isPrivate, ...otherProps }) {

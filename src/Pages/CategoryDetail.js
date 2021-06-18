@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Card from '../components/Card';
-import CardHeader from '../components/CardHeader';
-import CardBody from '../components/CardBody';
-import { Table, Tbody, Td, Th, Thead, Tr } from '../components/Table';
-import TableButton from '../components/TableButton';
-import { CurrentLocation, Link, PathWrapper, Separator } from '../components/Path';
-import { Modal, ModalBody, ModalContent, ModalHeader } from '../components/Modal';
+import Card from '../Components/Card';
+import CardHeader from '../Components/CardHeader';
+import CardBody from '../Components/CardBody';
+import { Table, Tbody, Td, Th, Thead, Tr } from '../Components/Table';
+import TableButton from '../Components/TableButton';
+import { CurrentLocation, Link, PathWrapper, Separator } from '../Components/Path';
+import { Modal, ModalBody, ModalContent, ModalHeader } from '../Components/Modal';
 import { useParams } from 'react-router';
-import CategoryService from '../services/CategoryService';
-import ProductService from '../services/ProductService';
-import { PageTitleContext } from '../context/pageTitleContext';
+import CategoryService from '../Services/CategoryService';
+import ProductService from '../Services/ProductService';
+import { PageTitleContext } from '../Context/pageTitleContext';
 
 function CategoryDetail(props) {
     const routeParams = useParams();

@@ -1,4 +1,4 @@
-import { Products } from '../constant/API';
+import { Products } from '../Constant/API';
 import axios from 'axios';
 
 class ProductService {

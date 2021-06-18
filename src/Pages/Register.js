@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Button from '../components/Button';
-import { InputText, Label, RequiredMark } from '../components/Form';
-import { PageTitleContext } from '../context/pageTitleContext';
+import Button from '../Components/Button';
+import { InputText, Label, RequiredMark } from '../Components/Form';
+import { PageTitleContext } from '../Context/pageTitleContext';
 import logo from '../logo.svg';
 
 

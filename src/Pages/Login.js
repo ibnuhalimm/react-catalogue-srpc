@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Button from '../components/Button';
-import { FormGroup, InputText, Label, RequiredMark } from '../components/Form';
-import { PageTitleContext } from '../context/pageTitleContext';
+import Button from '../Components/Button';
+import { FormGroup, InputText, Label, RequiredMark } from '../Components/Form';
+import { PageTitleContext } from '../Context/pageTitleContext';
 import logo from '../logo.svg';
-import { loginUser, logoutUser } from '../context/Auth/action';
-import { useAuthState, useAuthDispatch } from '../context/Auth/context';
+import { loginUser, logoutUser } from '../Context/Auth/action';
+import { useAuthState, useAuthDispatch } from '../Context/Auth/context';
 
 
 function Login(props) {

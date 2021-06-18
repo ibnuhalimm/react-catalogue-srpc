@@ -1,10 +1,10 @@
 import {
     ApiClient,
     Categories
-} from '../constant/API';
+} from '../Constant/API';
 import {
     SUCCESS
-} from '../constant/StatusCode';
+} from '../Constant/StatusCode';
 import axios from 'axios';
 import AuthTokenService from './AuthTokenService';
 

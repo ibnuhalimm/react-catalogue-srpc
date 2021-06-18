@@ -1,20 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Card from '../components/Card';
-import CardHeader from '../components/CardHeader';
-import CardBody from '../components/CardBody';
-import TableButton from '../components/TableButton';
-import TableButtonLink from '../components/TableButtonLink';
-import Button from '../components/Button';
-import { Table, Tbody, Td, Th, Thead, Tr } from '../components/Table';
-import { CurrentLocation, Link, PathWrapper, Separator } from '../components/Path';
-import { Modal, ModalBody, ModalContent, ModalHeader } from '../components/Modal';
-import '../services/CategoryService';
-import CategoryService from '../services/CategoryService';
-import { FormGroup, InputText, Label } from '../components/Form';
+import Card from '../Components/Card';
+import CardHeader from '../Components/CardHeader';
+import CardBody from '../Components/CardBody';
+import TableButton from '../Components/TableButton';
+import TableButtonLink from '../Components/TableButtonLink';
+import Button from '../Components/Button';
+import { Table, Tbody, Td, Th, Thead, Tr } from '../Components/Table';
+import { CurrentLocation, Link, PathWrapper, Separator } from '../Components/Path';
+import { Modal, ModalBody, ModalContent, ModalHeader } from '../Components/Modal';
+import '../Services/CategoryService';
+import CategoryService from '../Services/CategoryService';
+import { FormGroup, InputText, Label } from '../Components/Form';
 import { NavLink } from 'react-router-dom';
-import { PageTitleContext } from '../context/pageTitleContext';
-import AppLayout from '../components/AppLayout';
-import { UNAUTHORIZED } from '../constant/StatusCode';
+import { PageTitleContext } from '../Context/pageTitleContext';
+import AppLayout from '../Components/AppLayout';
+import { UNAUTHORIZED } from '../Constant/StatusCode';
 
 
 function Category(props) {
