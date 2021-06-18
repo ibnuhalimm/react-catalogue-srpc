@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../../Components/Button';
 import { InputText, Label, RequiredMark } from '../../Components/Form';
-import { logoutUser, registerUser } from '../../Context/Auth/action';
+import { logoutUser, registerUser, resetState } from '../../Context/Auth/action';
 import { useAuthDispatch, useAuthState } from '../../Context/Auth/context';
 import { PageTitleContext } from '../../Context/pageTitleContext';
 import Card from './Components/Card';
@@ -24,6 +24,7 @@ function Register() {
     useEffect(() => {
         setPageTitle('Register');
         logoutUser(dispatch);
+        resetState(dispatch);
     }, []);
 
 

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Button from '../../Components/Button';
 import { FormGroup, InputText, Label, RequiredMark } from '../../Components/Form';
 import { PageTitleContext } from '../../Context/pageTitleContext';
-import { loginUser, logoutUser } from '../../Context/Auth/action';
+import { loginUser, logoutUser, resetState } from '../../Context/Auth/action';
 import { useAuthState, useAuthDispatch } from '../../Context/Auth/context';
 import Card from './Components/Card';
 import Title from './Components/Title';
@@ -21,6 +21,7 @@ function Login(props) {
     useEffect(() => {
         setPageTitle('Login');
         logoutUser(dispatch);
+        resetState(dispatch);
     }, []);
 
 

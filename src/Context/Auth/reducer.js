@@ -5,7 +5,8 @@ import {
     REGISTER_ERROR,
     REGISTER_SUCCESS,
     REQUEST_LOGIN,
-    REQUEST_REGISTER
+    REQUEST_REGISTER,
+    RESET_STATE
 } from './actionTypes';
 
 
@@ -22,6 +23,11 @@ export const initialState = {
 
 export const AuthReducer = (initialState, action) => {
     switch (action.type) {
+        case RESET_STATE:
+            return {
+                initialState
+            };
+
         case REQUEST_REGISTER:
             return {
                 ...initialState,

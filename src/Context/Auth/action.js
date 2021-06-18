@@ -6,11 +6,19 @@ import {
     REGISTER_ERROR,
     REGISTER_SUCCESS,
     REQUEST_LOGIN,
-    REQUEST_REGISTER
+    REQUEST_REGISTER,
+    RESET_STATE
 } from './actionTypes';
 import {
     FORM_ERROR
 } from '../../Constant/StatusCode';
+
+
+export const resetState = (dispatch) => {
+    dispatch({
+        type: RESET_STATE
+    });
+}
 
 
 export const registerUser = (dispatch, registerPayload) => {
