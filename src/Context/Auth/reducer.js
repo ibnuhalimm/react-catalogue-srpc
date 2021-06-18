@@ -2,7 +2,10 @@ import {
     LOGIN_ERROR,
     LOGIN_SUCCESS,
     LOGOUT,
-    REQUEST_LOGIN
+    REGISTER_ERROR,
+    REGISTER_SUCCESS,
+    REQUEST_LOGIN,
+    REQUEST_REGISTER
 } from './actionTypes';
 
 
@@ -13,11 +16,34 @@ let token = localStorage.getItem('currentUser')
 export const initialState = {
     token: '' || token,
     loading: false,
-    errorMessage: null
+    errorMessage: null,
+    infoMessage: null
 };
 
 export const AuthReducer = (initialState, action) => {
     switch (action.type) {
+        case REQUEST_REGISTER:
+            return {
+                ...initialState,
+                loading: true
+            };
+
+        case REGISTER_SUCCESS:
+            return {
+                ...initialState,
+                loading: false,
+                errorMessage: null,
+                infoMessage: action.info
+            };
+
+        case REGISTER_ERROR:
+            return {
+                ...initialState,
+                loading: false,
+                errorMessage: action.error,
+                infoMessage: ''
+            };
+
         case REQUEST_LOGIN:
             return {
                 ...initialState,
@@ -29,7 +55,7 @@ export const AuthReducer = (initialState, action) => {
                 ...initialState,
                 loading: false,
                 token: action.payload.token,
-                errorMessage: ''
+                errorMessage: null
             };
 
         case LOGIN_ERROR:

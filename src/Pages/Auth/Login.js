@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import Button from '../../Components/Button';
 import { FormGroup, InputText, Label, RequiredMark } from '../../Components/Form';
 import { PageTitleContext } from '../../Context/pageTitleContext';
-import logo from '../../logo.svg';
 import { loginUser, logoutUser } from '../../Context/Auth/action';
 import { useAuthState, useAuthDispatch } from '../../Context/Auth/context';
 import Card from './Components/Card';
@@ -101,7 +100,6 @@ function Login(props) {
                                     className="ml-1 underline font-bold text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300">
                                     Register
                                 </NavLink>
-
                             </p>
                         </div>
                     </div>
