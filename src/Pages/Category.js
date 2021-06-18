@@ -11,7 +11,7 @@ import { Modal, ModalBody, ModalContent, ModalHeader } from '../Components/Modal
 import '../Services/CategoryService';
 import CategoryService from '../Services/CategoryService';
 import { FormGroup, InputText, Label } from '../Components/Form';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { PageTitleContext } from '../Context/pageTitleContext';
 import AppLayout from '../Components/AppLayout';
 import { UNAUTHORIZED } from '../Constant/StatusCode';
@@ -24,6 +24,7 @@ function Category(props) {
     const [ showDeleteModal, setShowDeleteModal ] = useState(false);
 
     const { pageTitle, setPageTitle } = useContext(PageTitleContext);
+    const navigation = useHistory();
 
     const initialCategory = {
         id: 0,
@@ -82,7 +83,9 @@ function Category(props) {
                 setCategory(initialCategory);
 
             } catch (error) {
-                alert(error);
+                if (error.code === UNAUTHORIZED) {
+                    navigation.push('/login');
+                }
             }
         }
 
@@ -251,7 +254,8 @@ function Category(props) {
                             </Button>
                             <Button
                                 color="default"
-                                onClick={saveFormModalHandler}>
+                                onClick={saveFormModalHandler}
+                                className="ml-2">
                                 Simpan
                             </Button>
                         </div>

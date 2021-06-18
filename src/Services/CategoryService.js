@@ -32,12 +32,22 @@ class CategoryService {
 
 
     static storeNewCategory(data) {
-        return axios.post(`${Categories.CREATE}`, data)
-            .then(responseJson => {
-                return Promise.resolve('success');
+        return ApiClient.post(`${Categories.CREATE}`, data, {
+                headers: {
+                    'Authorization': `${AuthTokenService.BearerToken()}`
+                }
             })
-            .catch(error => {
-                return Promise.reject(error.response.data.message);
+            .then(response => {
+                let responseData = response.data;
+                responseData['code'] = SUCCESS;
+
+                return Promise.resolve(responseData);
+            })
+            .catch(({ response }) => {
+                let responseData = response.data;
+                responseData['code'] = response.status;
+
+                return Promise.reject(responseData);
             });
     }
 
