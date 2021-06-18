@@ -37,7 +37,6 @@ function Login(props) {
             window.location.href = '/';
         }
 
-        setEmail('');
         setPassword('');
 
         return false;
@@ -59,7 +58,7 @@ function Login(props) {
                     <div className="lg:px-6 mt-8">
 
                         {errorMessage
-                        ? <p className="text-red-500 text-center mb-4">{errorMessage}</p>
+                        ? <div className="text-red-500 text-center mb-4 whitespace-pre-wrap">{errorMessage}</div>
                         : '' }
 
                         <form method="post" onSubmit={(event) => loginSubmitHandler(event)}>

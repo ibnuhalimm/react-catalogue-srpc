@@ -44,27 +44,25 @@ export const registerUser = (dispatch, registerPayload) => {
                 })
                 .catch(({ response }) => {
                     let responseData = response.data;
+                    let errorMessages = '';
 
                     if (response.status === FORM_ERROR) {
                         let errorFields = Object.keys(responseData.errors);
-                        let errorMessages = '';
 
                         errorFields.map(field => {
                             let errorText = responseData.errors[field][0];
                             errorMessages +=  `${errorText}\n`;
                         });
 
-                        dispatch({
-                            type: REGISTER_ERROR,
-                            error: errorMessages
-                        });
-
                     } else {
-                        dispatch({
-                            type: REGISTER_ERROR,
-                            error: responseData.message
-                        });
+                        errorMessages = responseData.message;
+
                     }
+
+                    dispatch({
+                        type: REGISTER_ERROR,
+                        error: errorMessages
+                    });
 
                     return Promise.resolve(responseData);
                 });
@@ -107,10 +105,24 @@ export const loginUser = (dispatch, loginPayload) => {
             })
             .catch(({ response }) => {
                 let responseData = response.data;
+                let errorMessages = '';
+
+                if (response.status === FORM_ERROR) {
+                    let errorFields = Object.keys(responseData.errors);
+
+                    errorFields.map(field => {
+                        let errorText = responseData.errors[field][0];
+                        errorMessages +=  `${errorText}\n`;
+                    });
+
+                } else {
+                    errorMessages = responseData.message;
+
+                }
 
                 dispatch({
                     type: LOGIN_ERROR,
-                    error: responseData.message
+                    error: errorMessages
                 });
 
                 return Promise.resolve(responseData);
