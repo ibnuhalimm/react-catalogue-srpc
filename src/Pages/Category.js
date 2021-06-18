@@ -55,7 +55,6 @@ function Category(props) {
                 props.history.push('/login');
             }
 
-            console.log(error);
         }
     };
 
@@ -86,6 +85,8 @@ function Category(props) {
                 if (error.code === UNAUTHORIZED) {
                     navigation.push('/login');
                 }
+
+                alert(error.message);
             }
         }
 
@@ -98,7 +99,11 @@ function Category(props) {
                 setCategory(initialCategory);
 
             } catch (error) {
-                alert(error);
+                if (error.code === UNAUTHORIZED) {
+                    navigation.push('/login');
+                }
+
+                alert(error.message);
             }
         }
     };
@@ -115,14 +120,15 @@ function Category(props) {
     const editCategoryHandler = async (id) => {
         try {
             const result = await CategoryService.getSingleCategory(id);
-            setCategory(result);
+            setCategory(result.data);
 
             setMode('edit');
             setModalFormTitle('Edit Kategori');
             setShowFormModal(true);
 
         } catch (error) {
-            alert(error);
+            alert(error.message);
+
         }
     }
 

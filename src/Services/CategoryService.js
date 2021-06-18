@@ -53,28 +53,43 @@ class CategoryService {
 
 
     static getSingleCategory(id) {
-        return axios.get(`${Categories.GET}/${id}`)
-            .then(responseJson => {
-                if (responseJson.data.data) {
-                    return Promise.resolve(responseJson.data.data);
-                }
-                else {
-                    return Promise.reject(responseJson.data.message);
+        return ApiClient.get(`${Categories.GET}/${id}`, {
+                headers: {
+                    'Authorization': `${AuthTokenService.BearerToken()}`
                 }
             })
-            .catch(error => {
-                return Promise.reject(error.response.data.message);
+            .then(response => {
+                let responseData = response.data;
+                responseData['code'] = response.status;
+
+                return Promise.resolve(responseData);
+            })
+            .catch(({ response }) => {
+                let responseData = response.data;
+                responseData['code'] = response.status;
+
+                return Promise.reject(responseData);
             })
     }
 
 
     static updateCategory(id, data) {
-        return axios.put(`${Categories.CREATE}/${id}`, data)
-            .then(responseJson => {
-                return Promise.resolve('success');
+        return ApiClient.put(`${Categories.CREATE}/${id}`, data, {
+                headers: {
+                    'Authorization': `${AuthTokenService.BearerToken()}`
+                }
             })
-            .catch(error => {
-                return Promise.reject(error.response.data.message);
+            .then(response => {
+                let responseData = response.data;
+                responseData['code'] = response.status;
+
+                return Promise.resolve(responseData);
+            })
+            .catch(({ response }) => {
+                let responseData = response.data;
+                responseData['code'] = response.status;
+
+                return Promise.reject(responseData);
             });
     }
 
