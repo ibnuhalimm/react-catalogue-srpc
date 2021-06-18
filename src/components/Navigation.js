@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { logoutUser } from '../context/Auth/action';
 import { useAuthDispatch } from '../context/Auth/context';
 
@@ -10,6 +10,8 @@ function Navigation(props) {
     const [ backdropClass, setBackdropClass ] = useState('opacity-0 pointer-events-none');
 
     const dispatch = useAuthDispatch();
+
+    const navigation = useHistory();
 
     const toggleSidebarHandler = (action) => {
         let currentSidebarClass = '';
@@ -27,7 +29,7 @@ function Navigation(props) {
 
     const logoutUserHandler = () => {
         logoutUser(dispatch);
-        window.location.href = '/login';
+        navigation.push('/login');
     }
 
 
