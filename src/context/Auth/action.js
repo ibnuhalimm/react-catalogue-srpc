@@ -1,4 +1,4 @@
-import { ApiClient, Auth, CSRFToken } from '../../constant/API';
+import { ApiClient, Auth } from '../../constant/API';
 import { LOGIN_ERROR, LOGIN_SUCCESS, LOGOUT, REQUEST_LOGIN } from './actionTypes';
 
 

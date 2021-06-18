@@ -19,7 +19,7 @@ function Login(props) {
     useEffect(() => {
         setPageTitle('Login');
         logoutUser(dispatch);
-    }, []);
+    });
 
 
     const loginSubmitHandler = async () => {

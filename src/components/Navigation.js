@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { logoutUser } from '../context/Auth/action';
 import { useAuthDispatch } from '../context/Auth/context';
 

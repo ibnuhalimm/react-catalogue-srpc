@@ -7,7 +7,6 @@ import {
 } from '../constant/StatusCode';
 import axios from 'axios';
 import AuthTokenService from './AuthTokenService';
-import { Redirect } from 'react-router';
 
 
 class CategoryService {

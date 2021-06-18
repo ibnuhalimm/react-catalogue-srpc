@@ -11,11 +11,10 @@ import { Modal, ModalBody, ModalContent, ModalHeader } from '../components/Modal
 import '../services/CategoryService';
 import CategoryService from '../services/CategoryService';
 import { FormGroup, InputText, Label } from '../components/Form';
-import { NavLink, Redirect, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { PageTitleContext } from '../context/pageTitleContext';
-import Navigation from '../components/Navigation';
 import AppLayout from '../components/AppLayout';
-import { SUCCESS, UNAUTHORIZED } from '../constant/StatusCode';
+import { UNAUTHORIZED } from '../constant/StatusCode';
 
 
 function Category(props) {
@@ -39,7 +38,7 @@ function Category(props) {
     useEffect(() => {
         setPageTitle('Kategori Produk');
         _fetchCategories()
-    }, []);
+    });
 
 
     const _fetchCategories = async () => {

@@ -23,7 +23,6 @@ export const AuthReducer = (initialState, action) => {
                 ...initialState,
                 loading: true
             };
-            break;
 
         case LOGIN_SUCCESS:
             return {
@@ -31,7 +30,6 @@ export const AuthReducer = (initialState, action) => {
                 token: action.payload.token,
                 loading: false
             };
-            break;
 
         case LOGIN_ERROR:
             return {
@@ -39,17 +37,14 @@ export const AuthReducer = (initialState, action) => {
                 loading: false,
                 errorMessage: action.error
             };
-            break;
 
         case LOGOUT:
             return {
                 ...initialState,
                 token: ''
             };
-            break;
 
         default:
             throw new Error(`Unknown action type ${action.type}`);
-            break;
     }
 }

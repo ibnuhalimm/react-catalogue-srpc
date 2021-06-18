@@ -1,5 +1,4 @@
 import './App.css';
-import Navigation from './components/Navigation';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Category from './pages/Category';
 import NotFound from './pages/errors/NotFound';
