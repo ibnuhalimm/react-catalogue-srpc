@@ -6,8 +6,8 @@ import { logoutUser, registerUser, resetState } from '../../Context/Auth/action'
 import { useAuthDispatch, useAuthState } from '../../Context/Auth/context';
 import { PageTitleContext } from '../../Context/pageTitleContext';
 import Card from './Components/Card';
-import Logo from './Components/Logo';
 import Title from './Components/Title';
+import Logo from '../../Components/Logo';
 
 
 function Register() {
@@ -53,7 +53,7 @@ function Register() {
         <main className="mt-10 mb-28">
             <div className="w-4/5 sm:w-2/5 md:w-4/5 lg:w-3/5 xl:max-w-xl mx-auto">
                 <Card>
-                    <div className="w-32 mx-auto">
+                    <div className="w-16 mx-auto">
                         <Logo />
                     </div>
                     <div className="text-center mt-3">

@@ -7,8 +7,7 @@ import { loginUser, logoutUser, resetState } from '../../Context/Auth/action';
 import { useAuthState, useAuthDispatch } from '../../Context/Auth/context';
 import Card from './Components/Card';
 import Title from './Components/Title';
-import Logo from './Components/Logo';
-
+import Logo from '../../Components/Logo';
 
 function Login(props) {
     const { pageTitle, setPageTitle } = useContext(PageTitleContext);
@@ -48,7 +47,7 @@ function Login(props) {
         <main className="mt-10 mb-28">
             <div className="w-4/5 sm:w-2/5 md:w-1/2 lg:w-2/5 xl:w-1/3 xl:max-w-sm mx-auto">
                 <Card>
-                    <div className="w-32 mx-auto">
+                    <div className="w-16 mx-auto">
                         <Logo />
                     </div>
                     <div className="text-center mt-3">

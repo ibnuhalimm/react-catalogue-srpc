@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import logo from '../logo.svg';
 import { NavLink, useHistory } from 'react-router-dom';
 import { logoutUser } from '../Context/Auth/action';
 import { useAuthDispatch } from '../Context/Auth/context';
+import Logo from './Logo';
 
 
 function Navigation(props) {
@@ -43,8 +43,10 @@ function Navigation(props) {
                 <div className={ sidebarClass + ' transform -translate-x-full xl:translate-x-0 fixed top-0 left-0 w-[63%] sm:w-1/3 lg:w-1/4 xl:w-52 h-full bg-white dark:bg-gray-600 xl:bg-transparent dark:xl:bg-transparent ease-in-out transition-all duration-300 z-30 border lg:border-0 border-solid border-t-0 border-r-0 border-b-0 border-gray-100' }>
                     <div className="w-full h-full flex flex-col overflow-y-auto">
                         <div className="w-1/2 xl:w-full py-4">
-                            <NavLink to="/" className="block xl:relative xl:-top-3 xl:mx-3">
-                                <img src={logo} alt="Webservice" className="w-16 h-auto" />
+                            <NavLink to="/" className="block xl:relative xl:-top-3 xl:mx-3 w-12 pl-4">
+                                <span className="xl:relative xl:top-2">
+                                    <Logo />
+                                </span>
                             </NavLink>
                         </div>
                         <div className="w-full">
@@ -98,8 +100,8 @@ function Navigation(props) {
                     </button>
                 </div>
                 <div className="w-1/3 py-3 xl:hidden">
-                    <NavLink to="/" className="block h-8 w-20 mx-auto relative -top-1">
-                        <img src={logo} alt="Webservice" className="w-14 h-auto mx-auto" />
+                    <NavLink to="/" className="block h-8 w-20 mx-auto">
+                        <Logo/>
                     </NavLink>
                 </div>
                 <div className="w-1/3 xl:pr-5">
