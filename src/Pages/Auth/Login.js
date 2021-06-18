@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Button from '../Components/Button';
-import { FormGroup, InputText, Label, RequiredMark } from '../Components/Form';
-import { PageTitleContext } from '../Context/pageTitleContext';
-import logo from '../logo.svg';
-import { loginUser, logoutUser } from '../Context/Auth/action';
-import { useAuthState, useAuthDispatch } from '../Context/Auth/context';
+import Button from '../../Components/Button';
+import { FormGroup, InputText, Label, RequiredMark } from '../../Components/Form';
+import { PageTitleContext } from '../../Context/pageTitleContext';
+import logo from '../../logo.svg';
+import { loginUser, logoutUser } from '../../Context/Auth/action';
+import { useAuthState, useAuthDispatch } from '../../Context/Auth/context';
+import Card from './Components/Card';
+import Title from './Components/Title';
+import Logo from './Components/Logo';
 
 
 function Login(props) {
@@ -42,14 +45,14 @@ function Login(props) {
     return (
         <main className="mt-10 mb-28">
             <div className="w-4/5 sm:w-2/5 md:w-1/2 lg:w-2/5 xl:w-1/3 xl:max-w-sm mx-auto">
-                <div className="bg-transparent md:bg-white dark:md:bg-gray-700 md:rounded-lg md:shadow-lg md:px-8 lg:px-3 md:py-10">
+                <Card>
                     <div className="w-32 mx-auto">
-                        <img src={logo} alt="Logo" className="w-full h-auto" />
+                        <Logo />
                     </div>
                     <div className="text-center mt-3">
-                        <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-300">
+                        <Title>
                             Login
-                        </h1>
+                        </Title>
                     </div>
                     <div className="lg:px-6 mt-8">
 
@@ -99,7 +102,7 @@ function Login(props) {
                             </p>
                         </div>
                     </div>
-                </div>
+                </Card>
             </div>
         </main>
     );

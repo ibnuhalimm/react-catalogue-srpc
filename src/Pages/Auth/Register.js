@@ -1,9 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import Button from '../Components/Button';
-import { InputText, Label, RequiredMark } from '../Components/Form';
-import { PageTitleContext } from '../Context/pageTitleContext';
-import logo from '../logo.svg';
+import Button from '../../Components/Button';
+import { InputText, Label, RequiredMark } from '../../Components/Form';
+import { PageTitleContext } from '../../Context/pageTitleContext';
+import logo from '../../logo.svg';
+import Card from './Components/Card';
+import Logo from './Components/Logo';
+import Title from './Components/Title';
 
 
 function Register() {
@@ -16,14 +19,14 @@ function Register() {
     return (
         <main className="mt-10 mb-28">
             <div className="w-4/5 sm:w-2/5 md:w-4/5 lg:w-3/5 xl:max-w-xl mx-auto">
-                <div className="bg-transparent md:bg-white md:rounded-lg md:shadow-lg md:px-8 lg:px-3 md:py-10">
+                <Card>
                     <div className="w-32 mx-auto">
-                        <img src={logo} alt="Logo" className="w-full h-auto" />
+                        <Logo />
                     </div>
                     <div className="text-center mt-3">
-                        <h1 className="text-2xl font-bold text-gray-800">
+                        <Title>
                             Register
-                        </h1>
+                        </Title>
                     </div>
                     <div className="lg:px-6 mt-8">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-8">
@@ -59,19 +62,19 @@ function Register() {
                         </div>
                         <div className="mt-8">
                             <p className="text-center">
-                                <span className="text-gray-600">
+                                <span className="text-gray-600 dark:text-gray-300">
                                     Already have an account?
                                 </span>
 
                                 <NavLink to="/login"
-                                    className="ml-1 underline font-bold text-gray-700 hover:text-gray-900 transition-all duration-300">
+                                    className="ml-1 underline font-bold text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-300">
                                     Login
                                 </NavLink>
 
                             </p>
                         </div>
                     </div>
-                </div>
+                </Card>
             </div>
         </main>
     );

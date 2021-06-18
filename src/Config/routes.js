@@ -1,5 +1,5 @@
-import Login from '../Pages/Login';
-import Register from '../Pages/Register';
+import Login from '../Pages/Auth/Login';
+import Register from '../Pages/Auth/Register';
 import Category from '../Pages/Category';
 import NotFound from '../Pages/Errors/NotFound'
 import Settings from '../Pages/Settings';
