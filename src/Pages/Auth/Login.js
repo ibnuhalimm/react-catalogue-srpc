@@ -25,7 +25,9 @@ function Login(props) {
     }, []);
 
 
-    const loginSubmitHandler = async () => {
+    const loginSubmitHandler = async (event) => {
+        event.preventDefault();
+
         let userPayload = {
             email: email,
             password: password
@@ -38,7 +40,8 @@ function Login(props) {
 
         setEmail('');
         setPassword('');
-        return;
+
+        return false;
     }
 
 
@@ -60,7 +63,7 @@ function Login(props) {
                         ? <p className="text-red-500 text-center mb-4">{errorMessage}</p>
                         : '' }
 
-                        <div>
+                        <form method="post" onSubmit={(event) => loginSubmitHandler(event)}>
                             <FormGroup>
                                 <Label>
                                     Email Address <RequiredMark/>
@@ -81,13 +84,13 @@ function Login(props) {
                             </FormGroup>
                             <div>
                                 <Button
+                                    type="submit"
                                     color="default"
-                                    className="w-full"
-                                    onClick={loginSubmitHandler} >
+                                    className="w-full">
                                     {loading ? 'Logging in...' : 'Login'}
                                 </Button>
                             </div>
-                        </div>
+                        </form>
                         <div className="mt-8">
                             <p className="text-center">
                                 <span className="text-gray-600 dark:text-gray-300">
