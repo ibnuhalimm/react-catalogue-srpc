@@ -23,7 +23,7 @@ function CategoryDetail(props) {
 
     useEffect(() => {
         _fetchCategory();
-    }, []);
+    });
 
 
     const _fetchCategory = async () => {

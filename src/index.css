@@ -3,45 +3,47 @@
 @tailwind utilities;
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  @apply text-sm bg-gray-50;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply text-sm bg-gray-50;
 }
 
 body.modal-active {
-  @apply overflow-y-hidden;
+    @apply overflow-y-hidden;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.left-sidebar--open {
-  transform: none;
-}
+@layer utilities {
+    .left-sidebar--open {
+        transform: none;
+    }
 
-.nav-active {
-  @apply bg-blue-100;
-}
+    .nav-active {
+        @apply bg-blue-100;
+    }
 
-@screen xl {
-  .nav-active {
-    @apply text-blue-600 bg-transparent;
-  }
-}
+    .table-data {
+        @apply w-full;
+    }
 
-.table-data {
-  @apply w-full;
-}
-.table-data tbody tr:last-child {
-  @apply border border-solid border-t-0 border-r-0 border-l-0 border-transparent !important;
-}
+    .table-data tbody tr:last-child {
+        @apply border border-solid border-t-0 border-r-0 border-l-0 border-transparent !important;
+    }
 
-.breadcrumb li + li {
-  @apply ml-2;
+    .breadcrumb li + li {
+        @apply ml-2;
+    }
+
+    @media screen(xl) {
+        .nav-active {
+        @apply text-blue-600 bg-transparent;
+        }
+    }
 }

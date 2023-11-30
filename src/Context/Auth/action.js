@@ -12,6 +12,7 @@ import {
 import {
     FORM_ERROR
 } from '../../Constant/StatusCode';
+import {IsJson} from '../../Helpers/IsJson';
 
 
 export const resetState = (dispatch) => {
@@ -21,7 +22,7 @@ export const resetState = (dispatch) => {
 }
 
 
-export const registerUser = (dispatch, registerPayload) => {
+export const registerUser = async (dispatch, registerPayload) => {
     try {
         dispatch({
             type: REQUEST_REGISTER
@@ -51,20 +52,25 @@ export const registerUser = (dispatch, registerPayload) => {
                     return Promise.resolve(responseData);
                 })
                 .catch(({ response }) => {
-                    let responseData = response.data;
-                    let errorMessages = '';
+                    let responseData = {};
+                    let errorMessages = 'Something went wrong';
 
-                    if (response.status === FORM_ERROR) {
-                        let errorFields = Object.keys(responseData.errors);
+                    if (IsJson(response) && response.hasOwnProperty('data')) {
+                        responseData = response.data;
 
-                        errorFields.map(field => {
-                            let errorText = responseData.errors[field][0];
-                            errorMessages +=  `${errorText}\n`;
-                        });
+                        if (response.status === FORM_ERROR) {
+                            errorMessages = '';
+                            let errorFields = Object.keys(responseData.errors);
 
-                    } else {
-                        errorMessages = responseData.message;
+                            errorFields.forEach(field => {
+                                let errorText = responseData.errors[field][0];
+                                errorMessages +=  `${errorText}\n`;
+                            });
 
+                        } else {
+                            errorMessages = responseData.message;
+
+                        }
                     }
 
                     dispatch({
@@ -85,7 +91,7 @@ export const registerUser = (dispatch, registerPayload) => {
     }
 }
 
-export const loginUser = (dispatch, loginPayload) => {
+export const loginUser = async (dispatch, loginPayload) => {
     try {
         dispatch({ type: REQUEST_LOGIN });
 
@@ -112,20 +118,25 @@ export const loginUser = (dispatch, loginPayload) => {
                 return Promise.resolve(responseData);
             })
             .catch(({ response }) => {
-                let responseData = response.data;
-                let errorMessages = '';
+                let responseData = {};
+                let errorMessages = 'Something went wrong';
 
-                if (response.status === FORM_ERROR) {
-                    let errorFields = Object.keys(responseData.errors);
+                if (IsJson(response) && response.hasOwnProperty('data')) {
+                    responseData = response.data;
 
-                    errorFields.map(field => {
-                        let errorText = responseData.errors[field][0];
-                        errorMessages +=  `${errorText}\n`;
-                    });
+                    if (response.status === FORM_ERROR) {
+                        errorMessages = '';
+                        let errorFields = Object.keys(responseData.errors);
 
-                } else {
-                    errorMessages = responseData.message;
+                        errorFields.forEach(field => {
+                            let errorText = responseData.errors[field][0];
+                            errorMessages +=  `${errorText}\n`;
+                        });
 
+                    } else {
+                        errorMessages = responseData.message;
+
+                    }
                 }
 
                 dispatch({

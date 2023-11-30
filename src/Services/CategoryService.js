@@ -5,12 +5,11 @@ import {
 import {
     SUCCESS
 } from '../Constant/StatusCode';
-import axios from 'axios';
 import AuthTokenService from './AuthTokenService';
 
 
 class CategoryService {
-    static getAllCategories() {
+    static async getAllCategories() {
         return ApiClient.get(`${Categories.GET}`, {
                 headers: {
                     'Authorization': `${AuthTokenService.BearerToken()}`
@@ -31,7 +30,7 @@ class CategoryService {
     }
 
 
-    static storeNewCategory(data) {
+    static async storeNewCategory(data) {
         return ApiClient.post(`${Categories.CREATE}`, data, {
                 headers: {
                     'Authorization': `${AuthTokenService.BearerToken()}`
@@ -52,7 +51,7 @@ class CategoryService {
     }
 
 
-    static getSingleCategory(id) {
+    static async getSingleCategory(id) {
         return ApiClient.get(`${Categories.GET}/${id}`, {
                 headers: {
                     'Authorization': `${AuthTokenService.BearerToken()}`
@@ -73,7 +72,7 @@ class CategoryService {
     }
 
 
-    static updateCategory(id, data) {
+    static async updateCategory(id, data) {
         return ApiClient.put(`${Categories.CREATE}/${id}`, data, {
                 headers: {
                     'Authorization': `${AuthTokenService.BearerToken()}`
@@ -94,7 +93,7 @@ class CategoryService {
     }
 
 
-    static deleteCategory(id, data) {
+    static async deleteCategory(id, data) {
         return ApiClient.delete(`${Categories.CREATE}/${id}`, {
                 headers: {
                     'Authorization': `${AuthTokenService.BearerToken()}`
@@ -115,7 +114,7 @@ class CategoryService {
     }
 
 
-    static getSingleCategoryWithProducts(id) {
+    static async getSingleCategoryWithProducts(id) {
         return ApiClient.get(`${Categories.GET}/${id}/products`, {
                 headers: {
                     'Authorization': `${AuthTokenService.BearerToken()}`

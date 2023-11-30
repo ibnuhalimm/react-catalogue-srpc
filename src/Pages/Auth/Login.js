@@ -52,7 +52,7 @@ function Login(props) {
                     </div>
                     <div className="text-center mt-3">
                         <Title>
-                            Masuk
+                            {pageTitle}
                         </Title>
                     </div>
                     <div className="lg:px-6 mt-8">

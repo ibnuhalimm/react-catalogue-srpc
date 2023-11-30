@@ -12,11 +12,11 @@ import AppLayout from '../Components/AppLayout';
 
 function Settings() {
     const { theme, setTheme } = useContext(ThemeContext);
-    const { setPageTitle } = useContext(PageTitleContext);
+    const { pageTitle, setPageTitle } = useContext(PageTitleContext);
 
     useEffect(() => {
         setPageTitle('Pengaturan');
-    }, []);
+    }, [setPageTitle]);
 
     const isDark = () => {
         return theme === 'dark';
@@ -31,7 +31,9 @@ function Settings() {
             <PathWrapper>
                 <Link to="/">Beranda</Link>
                 <Separator></Separator>
-                <CurrentLocation>Pengaturan</CurrentLocation>
+                <CurrentLocation>
+                    {pageTitle}
+                </CurrentLocation>
             </PathWrapper>
             <Card>
                 <CardHeader>

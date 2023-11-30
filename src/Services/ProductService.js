@@ -3,7 +3,7 @@ import AuthTokenService from './AuthTokenService';
 
 
 class ProductService {
-    static getSingleProduct(id) {
+    static async getSingleProduct(id) {
         return ApiClient.get(`${Products.GET}/${id}`, {
                 headers: {
                     'Authorization': `${AuthTokenService.BearerToken()}`

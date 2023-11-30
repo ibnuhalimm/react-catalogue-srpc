@@ -167,7 +167,7 @@ function Category(props) {
             <PathWrapper>
                 <Link to="/">Beranda</Link>
                 <Separator></Separator>
-                <CurrentLocation>Kategori Produk</CurrentLocation>
+                <CurrentLocation>{pageTitle}</CurrentLocation>
             </PathWrapper>
             <Card>
                 <CardHeader>

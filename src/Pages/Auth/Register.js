@@ -11,7 +11,7 @@ import Logo from '../../Components/Logo';
 
 
 function Register() {
-    const { setPageTitle } = useContext(PageTitleContext);
+    const { pageTitle, setPageTitle } = useContext(PageTitleContext);
 
     const dispatch = useAuthDispatch();
     const { loading, errorMessage, infoMessage } = useAuthState();
@@ -25,7 +25,7 @@ function Register() {
         setPageTitle('Register');
         logoutUser(dispatch);
         resetState(dispatch);
-    }, []);
+    }, [dispatch, setPageTitle]);
 
 
     const registerUserHandler = async (event) => {
@@ -58,7 +58,7 @@ function Register() {
                     </div>
                     <div className="text-center mt-3">
                         <Title>
-                            Daftar
+                            {pageTitle}
                         </Title>
                     </div>
                     <div className="lg:px-6 mt-8">
